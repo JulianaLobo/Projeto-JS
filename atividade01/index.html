@@ -11,38 +11,88 @@
         let vetAges = [10, 21, 31, 40];
         
         // Soma das idades
-        const sumAges = (vet) => vet.reduce((sum, age) => sum + age, 0);
+        const sumAges = (vet) => {
+            let sum = 0;
+            for (let i = 0; i < vet.length; i++) {
+                sum += vet[i];
+            }
+            return sum;
+        };
         document.write(`<p>Soma das idades = ${sumAges(vetAges)}</p>`);
         
         // Média das idades
-        const averageAges = (vet) => sumAges(vet) / vet.length;
+        const averageAges = (vet) => {
+            return sumAges(vet) / vet.length;
+        };
         document.write(`<p>Média das idades = ${averageAges(vetAges)}</p>`);
         
         // Maior idade
-        const maxAge = (vet) => Math.max(...vet);
+        const maxAge = (vet) => {
+            let max = vet[0];
+            for (let i = 1; i < vet.length; i++) {
+                if (vet[i] > max) {
+                    max = vet[i];
+                }
+            }
+            return max;
+        };
         document.write(`<p>Maior idade = ${maxAge(vetAges)}</p>`);
         
         // Idades ímpares
-        const oddAges = (vet) => vet.filter(age => age % 2 !== 0);
+        const oddAges = (vet) => {
+            let odds = [];
+            for (let i = 0; i < vet.length; i++) {
+                if (vet[i] % 2 !== 0) {
+                    odds.push(vet[i]);
+                }
+            }
+            return odds;
+        };
         document.write(`<p>Idades ímpares = ${oddAges(vetAges).join(', ')}</p>`);
         
         // Verificar se todos são maiores de idade
-        const allAdults = (vet) => vet.every(age => age >= 18);
+        const allAdults = (vet) => {
+            for (let i = 0; i < vet.length; i++) {
+                if (vet[i] < 18) {
+                    return false;
+                }
+            }
+            return true;
+        };
         document.write(`<p>Todos são maiores de idade? ${allAdults(vetAges)}</p>`);
         
         // Verificar se todas as idades são maiores ou iguais a um valor informado pelo usuário
         let minValue = parseInt(prompt("Digite um valor mínimo de idade:"));
-        const allAboveMin = (vet, min) => vet.every(age => age >= min);
+        const allAboveMin = (vet, min) => {
+            for (let i = 0; i < vet.length; i++) {
+                if (vet[i] < min) {
+                    return false;
+                }
+            }
+            return true;
+        };
         document.write(`<p>Todos têm idade maior ou igual a ${minValue}? ${allAboveMin(vetAges, minValue)}</p>`);
         
         // Exibir todas as idades maiores ou iguais a determinada idade
-        const filterAges = (vet, min) => vet.filter(age => age >= min);
+        const filterAges = (vet, min) => {
+            let result = [];
+            for (let i = 0; i < vet.length; i++) {
+                if (vet[i] >= min) {
+                    result.push(vet[i]);
+                }
+            }
+            return result;
+        };
         document.write(`<p>Idades maiores ou iguais a ${minValue} = ${filterAges(vetAges, minValue).join(', ')}</p>`);
         
         // Média das idades das pessoas com idades maiores ou iguais a determinada idade
         const avgFilteredAges = (vet, min) => {
             let filtered = filterAges(vet, min);
-            return filtered.length > 0 ? sumAges(filtered) / filtered.length : 0;
+            let sum = 0;
+            for (let i = 0; i < filtered.length; i++) {
+                sum += filtered[i];
+            }
+            return filtered.length > 0 ? sum / filtered.length : 0;
         };
         document.write(`<p>Média das idades maiores ou iguais a ${minValue} = ${avgFilteredAges(vetAges, minValue)}</p>`);
     </script>
