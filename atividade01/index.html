@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício de JavaScript</title>
+</head>
+<body>
+    <h1>Exercício de JavaScript - Juliana Lobo</h1>
+    <script>
+        let vetAges = [10, 21, 31, 40];
+        
+        // Soma das idades
+        const sumAges = (vet) => vet.reduce((sum, age) => sum + age, 0);
+        document.write(`<p>Soma das idades = ${sumAges(vetAges)}</p>`);
+        
+        // Média das idades
+        const averageAges = (vet) => sumAges(vet) / vet.length;
+        document.write(`<p>Média das idades = ${averageAges(vetAges)}</p>`);
+        
+        // Maior idade
+        const maxAge = (vet) => Math.max(...vet);
+        document.write(`<p>Maior idade = ${maxAge(vetAges)}</p>`);
+        
+        // Idades ímpares
+        const oddAges = (vet) => vet.filter(age => age % 2 !== 0);
+        document.write(`<p>Idades ímpares = ${oddAges(vetAges).join(', ')}</p>`);
+        
+        // Verificar se todos são maiores de idade
+        const allAdults = (vet) => vet.every(age => age >= 18);
+        document.write(`<p>Todos são maiores de idade? ${allAdults(vetAges)}</p>`);
+        
+        // Verificar se todas as idades são maiores ou iguais a um valor informado pelo usuário
+        let minValue = parseInt(prompt("Digite um valor mínimo de idade:"));
+        const allAboveMin = (vet, min) => vet.every(age => age >= min);
+        document.write(`<p>Todos têm idade maior ou igual a ${minValue}? ${allAboveMin(vetAges, minValue)}</p>`);
+        
+        // Exibir todas as idades maiores ou iguais a determinada idade
+        const filterAges = (vet, min) => vet.filter(age => age >= min);
+        document.write(`<p>Idades maiores ou iguais a ${minValue} = ${filterAges(vetAges, minValue).join(', ')}</p>`);
+        
+        // Média das idades das pessoas com idades maiores ou iguais a determinada idade
+        const avgFilteredAges = (vet, min) => {
+            let filtered = filterAges(vet, min);
+            return filtered.length > 0 ? sumAges(filtered) / filtered.length : 0;
+        };
+        document.write(`<p>Média das idades maiores ou iguais a ${minValue} = ${avgFilteredAges(vetAges, minValue)}</p>`);
+    </script>
+</body>
+</html>
