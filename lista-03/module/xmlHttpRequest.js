@@ -7,7 +7,7 @@ function carregarJson() {
           if (ajax.status == 200) {
               try {
                   var data = JSON.parse(ajax.responseText);
-                  console.log("Dados carregados:", data);
+                  console.log("Dados carregados com XMLHttpRequest:", data);
               } catch (e) {
                   console.error("Erro ao parsear JSON:", e);
               }
