@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Estudantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        select {
+            padding: 8px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        #resultado {
+            border: 1px solid #ddd;
+            padding: 15px;
+            min-height: 100px;
+        }
+        .estudante {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>Consulta de Estudantes</h1>
+    
+    <select id="opcao">
+        <option value="">Selecione uma opção</option>
+        <option value="todos">Todos os estudantes</option>
+        <option value="reprovados">Reprovados</option>
+        <option value="aprovados">Aprovados</option>
+        <option value="mulheres">Estudantes mulheres</option>
+        <option value="homens">Estudantes homens</option>
+        <option value="media">Média da turma</option>
+    </select>
+    
+    <div id="resultado"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
