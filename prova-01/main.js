@@ -73,4 +73,4 @@ function carregarFilmes() {
         });
 }
 
-carregarGeneros().then(carregarFilmes);
+carregarGeneros().then(carregarFilmes); 
