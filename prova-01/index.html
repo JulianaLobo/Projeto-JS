@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes Populares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        .filmes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .filme {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 200px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .filme img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .filme h2 {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        
+        .filme p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+        
+        .carregando {
+            text-align: center;
+            font-size: 18px;
+            margin: 50px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Top 10 Filmes Populares</h1>
+    
+    <div class="filmes-container" id="filmes-container">
+        <div class="carregando">Carregando filmes...</div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
