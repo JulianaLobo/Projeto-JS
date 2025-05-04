@@ -1,5 +1,5 @@
-const apiKey = 'SUA_API_KEY';
-const filmesContainer = document.getElementById('filmes');
+const apiKey = '1a4671fc29f793dc45edcd5845645427';
+const filmesContainer = document.getElementById('filmes-container');
 
 let listaGeneros = [];
 
