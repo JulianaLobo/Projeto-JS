@@ -48,7 +48,7 @@ function carregarFilmes() {
             console.log('Filmes recebidos:', dados);
             filmesContainer.innerHTML = '';
 
-            dados.results.forEach(filme => {
+            dados.results.slice(0, 10).forEach(filme => {
                 const card = document.createElement('div');
                 card.classList.add('filme');
 
