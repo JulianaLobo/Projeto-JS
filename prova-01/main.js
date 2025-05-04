@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Substitua SUA_API_KEY pela chave que você obteve no TMDB
-    const apiKey = 'SUA_API_KEY';
+    const apiKey = '1a4671fc29f793dc45edcd5845645427';
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=1`;
     
     fetch(url)
