@@ -38,7 +38,7 @@ function carregarFilmes() {
         method: 'GET',
         headers: {
             accept: 'application/json',
-            Authorization: 'Bearer SUA_BEARER_TOKEN_AQUI'
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYTQ2NzFmYzI5Zjc5M2RjNDVlZGNkNTg0NTY0NTQyNyIsIm5iZiI6MTc0NjM5ODM1NS40MjcsInN1YiI6IjY4MTdlYzkzODk2MTUyOTcxOTFkMGU2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.GTK_L8A52bAPX84ITCWKoi9Z3kco6fyKMDnKU4Hvd9E'
         }
     };
 
