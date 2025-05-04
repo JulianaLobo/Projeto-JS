@@ -1,14 +1,25 @@
-const apiKey = '1a4671fc29f793dc45edcd5845645427';
 const filmesContainer = document.getElementById('filmes-container');
 
 let listaGeneros = [];
 
 function carregarGeneros() {
-    const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=pt-BR`;
-    return fetch(url)
+    const url = 'https://api.themoviedb.org/3/genre/movie/list?language=pt-BR';
+    const options = {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYTQ2NzFmYzI5Zjc5M2RjNDVlZGNkNTg0NTY0NTQyNyIsIm5iZiI6MTc0NjM5ODM1NS40MjcsInN1YiI6IjY4MTdlYzkzODk2MTUyOTcxOTFkMGU2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.GTK_L8A52bAPX84ITCWKoi9Z3kco6fyKMDnKU4Hvd9E'
+        }
+    };
+
+    return fetch(url, options)
         .then(res => res.json())
         .then(dados => {
+            console.log('Gêneros carregados:', dados);
             listaGeneros = dados.genres;
+        })
+        .catch(err => {
+            console.error('Erro ao carregar os gêneros:', err);
         });
 }
 
@@ -22,11 +33,19 @@ function getNomesDosGeneros(genreIds) {
 function carregarFilmes() {
     filmesContainer.innerHTML = '<p>Carregando filmes...</p>';
 
-    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=1`;
+    const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-BR&page=1&sort_by=popularity.desc';
+    const options = {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            Authorization: 'Bearer SUA_BEARER_TOKEN_AQUI'
+        }
+    };
 
-    fetch(url)
+    fetch(url, options)
         .then(res => res.json())
         .then(dados => {
+            console.log('Filmes recebidos:', dados);
             filmesContainer.innerHTML = '';
 
             dados.results.forEach(filme => {
@@ -49,10 +68,9 @@ function carregarFilmes() {
             });
         })
         .catch(error => {
-            console.error(error);
+            console.error('Erro ao carregar os filmes:', error);
             filmesContainer.innerHTML = '<p>Erro ao carregar os filmes. Tente novamente mais tarde.</p>';
         });
 }
 
-// Primeiro carrega os gêneros, depois os filmes
 carregarGeneros().then(carregarFilmes);
