@@ -1,0 +1,10 @@
+.size{
+    width: 20rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
